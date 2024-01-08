@@ -1,6 +1,14 @@
 import { Table } from "antd";
+import { type ColumnsType } from "antd/es/table";
 
-const tableColumns = [
+interface DataType {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const tableColumns: ColumnsType<DataType> = [
   {
     title: "Name",
     dataIndex: "name",
@@ -18,7 +26,7 @@ const tableColumns = [
   },
 ];
 
-const tableData = [
+const tableData: DataType[] = [
   {
     key: "1",
     name: "Mike",
