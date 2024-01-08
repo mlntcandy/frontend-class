@@ -1,6 +1,7 @@
 import { University, useUniversities } from "../lib/api/universities";
 import { Table } from "antd";
 import { type ColumnsType } from "antd/es/table";
+import { Pagination } from "./Pagination";
 
 export type UniversitiesTableProps = {
   displayPerPage: number;
@@ -30,8 +31,13 @@ export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
     <>
       {data === null && <div>Loading...</div>}
       {data !== null && (
-        <Table dataSource={data} columns={universityTableColumns} />
+        <Table
+          dataSource={data}
+          columns={universityTableColumns}
+          pagination={false}
+        />
       )}
+      <Pagination page={page} onChange={setPage} />
     </>
   );
 };
