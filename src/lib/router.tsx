@@ -5,9 +5,10 @@ import { Contact } from "../routes/Contact";
 import { News } from "../routes/News";
 import { Universities } from "../routes/Universities";
 import { Navigate, useRoutes } from "react-router-dom";
+import { useAuth } from "./auth/context";
 
 export const MainRouter = () => {
-  const isAuthed = true; // placeholder
+  const { loggedIn } = useAuth();
 
   const publicPaths = [
     { path: ROUTES.ABOUT, Component: About },
@@ -21,7 +22,7 @@ export const MainRouter = () => {
     { path: ROUTES.UNIVERSITIES, Component: Universities },
   ];
 
-  const paths = [...publicPaths, ...(isAuthed ? authPaths : [])];
+  const paths = [...publicPaths, ...(loggedIn ? authPaths : [])];
 
   return useRoutes(paths);
 };
