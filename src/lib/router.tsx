@@ -10,15 +10,15 @@ export const MainRouter = () => {
   const isAuthed = true; // placeholder
 
   const publicPaths = [
-    { path: ROUTES.ABOUT, component: About },
-    { path: ROUTES.CONTACT, component: Contact },
-    { path: ROUTES.HOME, component: Home },
+    { path: ROUTES.ABOUT, Component: About },
+    { path: ROUTES.CONTACT, Component: Contact },
+    { path: ROUTES.HOME, Component: Home },
     { path: "*", element: <Navigate to={"/"} replace /> },
   ];
 
   const authPaths = [
-    { path: ROUTES.NEWS, component: News },
-    { path: ROUTES.UNIVERSITIES, component: Universities },
+    { path: ROUTES.NEWS, Component: News },
+    { path: ROUTES.UNIVERSITIES, Component: Universities },
   ];
 
   const paths = [...publicPaths, ...(isAuthed ? authPaths : [])];
