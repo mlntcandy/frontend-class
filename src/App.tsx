@@ -1,9 +1,9 @@
-import { UniversitiesTable } from "./components/UniversitiesTable";
+import { MainRouter } from "./lib/router";
 
 function App() {
   return (
     <>
-      <UniversitiesTable displayPerPage={10} />
+      <MainRouter />
     </>
   );
 }
