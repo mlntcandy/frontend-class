@@ -3,7 +3,6 @@ import { Table } from "antd";
 function App() {
   return (
     <>
-      <h1>Vite + React</h1>
       <Table
         dataSource={[
           {
