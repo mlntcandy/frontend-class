@@ -3,6 +3,7 @@ import { ROUTES } from "../routes";
 import { Link } from "react-router-dom";
 import { LoginButton } from "./LoginButton";
 import styled from "styled-components";
+import { ThemeToggle } from "./ThemeToggle";
 
 const NavbarWrapper = styled.div`
   display: flex;
@@ -12,6 +13,12 @@ const NavbarWrapper = styled.div`
 `;
 
 const Nav = styled.nav`
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+`;
+
+const RightSide = styled.div`
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -33,7 +40,10 @@ export const NavBar: React.FC = () => {
           </>
         )}
       </Nav>
-      <LoginButton />
+      <RightSide>
+        <LoginButton />
+        <ThemeToggle />
+      </RightSide>
     </NavbarWrapper>
   );
 };
