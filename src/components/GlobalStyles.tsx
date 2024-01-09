@@ -31,4 +31,10 @@ export const GlobalStyles = createGlobalStyle`
         background-color: var(--background);
         color: var(--text);
     }
+
+    button {
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+    }
 `;
