@@ -27,6 +27,21 @@ const StyledTable = styled(Table)`
   border: 1px solid var(--gray-200);
   border-radius: 1rem;
   overflow: hidden;
+  & .ant-table {
+    background-color: var(--background);
+    color: var(--text);
+  }
+  & .ant-table-thead > tr > th {
+    background-color: var(--gray-100);
+    color: var(--text);
+    border-color: var(--gray-200);
+  }
+  & .ant-table-row > .ant-table-cell-row-hover {
+    background-color: var(--gray-200) !important;
+  }
+  & .ant-table-tbody > tr > td {
+    border-color: var(--gray-200);
+  }
 ` as typeof Table;
 //   ^ Table has type generics which are lost with `styled()`,
 //     and we're not using any additional props, so casting is fine
