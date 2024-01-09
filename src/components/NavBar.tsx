@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import { LoginButton } from "./LoginButton";
 import styled from "styled-components";
 
-export const NavbarWrapper = styled.div`
+const NavbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
   background-color: #eee;
 `;
 
-export const Nav = styled.nav`
+const Nav = styled.nav`
   display: flex;
   gap: 1rem;
 `;
