@@ -1,9 +1,9 @@
 import { useAuth } from "../lib/auth/context";
 import { ROUTES } from "../routes";
-import { Link } from "react-router-dom";
 import { LoginButton } from "./LoginButton";
 import styled from "styled-components";
 import { ThemeToggle } from "./ThemeToggle";
+import { StyledLink } from "./StyledLink";
 
 const NavbarWrapper = styled.div`
   display: flex;
@@ -30,13 +30,13 @@ export const NavBar: React.FC = () => {
   return (
     <NavbarWrapper>
       <Nav>
-        <Link to={ROUTES.HOME}>Главная</Link>
-        <Link to={ROUTES.ABOUT}>О нас</Link>
-        <Link to={ROUTES.CONTACT}>Контакты</Link>
+        <StyledLink to={ROUTES.HOME}>Главная</StyledLink>
+        <StyledLink to={ROUTES.ABOUT}>О нас</StyledLink>
+        <StyledLink to={ROUTES.CONTACT}>Контакты</StyledLink>
         {loggedIn && (
           <>
-            <Link to={ROUTES.NEWS}>Новости</Link>
-            <Link to={ROUTES.UNIVERSITIES}>Университеты</Link>
+            <StyledLink to={ROUTES.NEWS}>Новости</StyledLink>
+            <StyledLink to={ROUTES.UNIVERSITIES}>Университеты</StyledLink>
           </>
         )}
       </Nav>
