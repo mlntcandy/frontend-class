@@ -2,20 +2,26 @@ import { useAuth } from "../lib/auth/context";
 import { ROUTES } from "../routes";
 import { Link } from "react-router-dom";
 import { LoginButton } from "./LoginButton";
+import styled from "styled-components";
+
+export const NavbarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: lightblue;
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  gap: 1rem;
+`;
 
 export const NavBar: React.FC = () => {
   const { loggedIn } = useAuth();
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "1rem",
-        backgroundColor: "lightblue",
-      }}
-    >
-      <nav style={{ display: "flex", gap: "1rem" }}>
+    <NavbarWrapper>
+      <Nav>
         <Link to={ROUTES.HOME}>Главная</Link>
         <Link to={ROUTES.ABOUT}>О нас</Link>
         <Link to={ROUTES.CONTACT}>Контакты</Link>
@@ -25,8 +31,8 @@ export const NavBar: React.FC = () => {
             <Link to={ROUTES.UNIVERSITIES}>Университеты</Link>
           </>
         )}
-      </nav>
+      </Nav>
       <LoginButton />
-    </div>
+    </NavbarWrapper>
   );
 };
