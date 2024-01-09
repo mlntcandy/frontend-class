@@ -1,9 +1,14 @@
-import { UniversitiesTable } from "./components/UniversitiesTable";
+import { NavBar } from "./components/NavBar";
+import { AuthProvider } from "./lib/auth/context";
+import { MainRouter } from "./lib/router";
 
 function App() {
   return (
     <>
-      <UniversitiesTable displayPerPage={10} />
+      <AuthProvider>
+        <NavBar />
+        <MainRouter />
+      </AuthProvider>
     </>
   );
 }
