@@ -27,7 +27,16 @@ const StyledTable = styled(Table)`
   border: 1px solid #ccc;
   border-radius: 1rem;
   overflow: hidden;
-` as typeof Table; // Type of Table has generics which are lost
+` as typeof Table;
+//   ^ Table has type generics which are lost with `styled()`,
+//     and we're not using any additional props, so casting is fine
+
+const StyledLoading = styled.div`
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #888;
+`;
 
 export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
   const { data, page, setPage } = useUniversities(
@@ -37,7 +46,7 @@ export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
 
   return (
     <>
-      {data === null && <div>Loading...</div>}
+      {data === null && <StyledLoading>Loading...</StyledLoading>}
       {data !== null && (
         <StyledTable
           dataSource={data}
