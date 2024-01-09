@@ -14,6 +14,7 @@ const NavbarWrapper = styled.div`
 const Nav = styled.nav`
   display: flex;
   gap: 1rem;
+  align-items: center;
 `;
 
 export const NavBar: React.FC = () => {
