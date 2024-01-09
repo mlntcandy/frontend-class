@@ -8,7 +8,7 @@ const NavbarWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  background-color: #eee;
+  background-color: var(--gray-100);
 `;
 
 const Nav = styled.nav`

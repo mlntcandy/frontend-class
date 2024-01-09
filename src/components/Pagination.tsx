@@ -12,8 +12,8 @@ interface StyledButtonProps {
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
-  background-color: #eee;
-  border: 1px solid #ccc;
+  background-color: var(--gray-100);
+  border: 1px solid var(--gray-200);
   border-radius: ${({ left, right, radius }) => {
     radius ??= "0.5rem";
     if (left) return `${radius} 0 0 ${radius}`;
@@ -23,15 +23,15 @@ const StyledButton = styled.button<StyledButtonProps>`
   padding: 0.5rem 0.8rem;
   cursor: pointer;
   &:disabled {
-    background-color: #ccc;
-    border-color: #aaa;
+    background-color: var(--gray-200);
+    border-color: var(--gray-300);
     cursor: not-allowed;
   }
 `;
 
 const CurrentPage = styled.span`
   padding: 0.5rem 0.8rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gray-200);
   border-left: none;
   border-right: none;
 `;

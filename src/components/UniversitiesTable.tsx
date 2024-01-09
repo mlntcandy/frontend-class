@@ -24,7 +24,7 @@ const universityTableColumns: ColumnsType<University> = [
 
 const StyledTable = styled(Table)`
   margin: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--gray-200);
   border-radius: 1rem;
   overflow: hidden;
 ` as typeof Table;
@@ -35,7 +35,7 @@ const StyledLoading = styled.div`
   margin: 1rem;
   text-align: center;
   font-size: 1.5rem;
-  color: #888;
+  color: var(--gray-300);
 `;
 
 export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
