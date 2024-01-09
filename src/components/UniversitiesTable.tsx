@@ -2,6 +2,7 @@ import { University, useUniversities } from "../lib/api/universities";
 import { Table } from "antd";
 import { type ColumnsType } from "antd/es/table";
 import { Pagination } from "./Pagination";
+import styled from "styled-components";
 
 export type UniversitiesTableProps = {
   displayPerPage: number;
@@ -21,6 +22,13 @@ const universityTableColumns: ColumnsType<University> = [
   },
 ];
 
+const StyledTable = styled(Table)`
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  overflow: hidden;
+` as typeof Table; // Type of Table has generics which are lost
+
 export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
   const { data, page, setPage } = useUniversities(
     props.displayPerPage,
@@ -31,7 +39,7 @@ export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
     <>
       {data === null && <div>Loading...</div>}
       {data !== null && (
-        <Table
+        <StyledTable
           dataSource={data}
           columns={universityTableColumns}
           pagination={false}
