@@ -1,10 +1,5 @@
 import styled from "styled-components";
-
-interface IUniversity {
-  name: string;
-  country: string;
-  web_pages: string[];
-}
+import { University } from "../lib/api/universities";
 
 const CardStyled = styled.div`
   background-color: var(--gray-100);
@@ -13,7 +8,7 @@ const CardStyled = styled.div`
   margin-bottom: 1rem;
 `;
 
-export const UniversityCard: React.FC<{ data: IUniversity }> = ({ data }) => {
+export const UniversityCard: React.FC<{ data: University }> = ({ data }) => {
   return (
     <CardStyled>
       <title>{data.name}</title>
