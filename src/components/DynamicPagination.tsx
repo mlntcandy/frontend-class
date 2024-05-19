@@ -4,7 +4,7 @@ import { useUniversities } from "../lib/api/universities";
 import { useInView } from "react-intersection-observer";
 
 export const DynamicPagination: React.FC = () => {
-  const { data, loading, page, setPage } = useUniversities(15, 1, true);
+  const { data, loading, setPage } = useUniversities(15, 1, true);
 
   const { ref, inView } = useInView({
     threshold: 1.0,

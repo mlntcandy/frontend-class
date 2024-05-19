@@ -34,9 +34,7 @@ export const NavBar: React.FC = () => {
         <StyledLink to={ROUTES.ABOUT}>О нас</StyledLink>
         <StyledLink to={ROUTES.CONTACT}>Контакты</StyledLink>
         <StyledLink to={ROUTES.PDF}>PDF</StyledLink>
-        <StyledLink to={ROUTES.UNIVERSITY_CARDS}>
-          Карточки университетов
-        </StyledLink>
+        <StyledLink to={ROUTES.UNIVERSITY_CARDS}>Карточки университетов</StyledLink>
         {loggedIn && (
           <>
             <StyledLink to={ROUTES.NEWS}>Новости</StyledLink>
