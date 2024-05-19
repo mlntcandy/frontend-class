@@ -5,7 +5,13 @@ const CardStyled = styled.div`
   background-color: var(--gray-100);
   padding: 1rem;
   border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  margin: 0.5rem;
+`;
+
+const Links = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 `;
 
 export const UniversityCard: React.FC<{ data: University }> = ({ data }) => {
@@ -13,13 +19,13 @@ export const UniversityCard: React.FC<{ data: University }> = ({ data }) => {
     <CardStyled>
       <div>{data.name}</div>
       <div>{data.country}</div>
-      <div>
+      <Links>
         {data.web_pages.map((page) => (
           <a key={page} href={page}>
             {page}
           </a>
         ))}
-      </div>
+      </Links>
     </CardStyled>
   );
 };

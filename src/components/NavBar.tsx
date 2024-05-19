@@ -16,6 +16,7 @@ const Nav = styled.nav`
   display: flex;
   gap: 1rem;
   align-items: center;
+  overflow-x: auto;
 `;
 
 const RightSide = styled.div`
