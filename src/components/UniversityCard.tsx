@@ -11,15 +11,15 @@ const CardStyled = styled.div`
 export const UniversityCard: React.FC<{ data: University }> = ({ data }) => {
   return (
     <CardStyled>
-      <title>{data.name}</title>
-      <span>{data.country}</span>
-      <span>
+      <div>{data.name}</div>
+      <div>{data.country}</div>
+      <div>
         {data.web_pages.map((page) => (
           <a key={page} href={page}>
             {page}
           </a>
         ))}
-      </span>
+      </div>
     </CardStyled>
   );
 };

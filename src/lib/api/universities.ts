@@ -29,7 +29,7 @@ export const useUniversities = (
       .then((response) => response.json())
       .catch(() => null)
       .then(
-        infinite
+        !infinite
           ? setData
           : (newData) =>
               setData((old) => (old ? [...old, ...newData] : newData))

@@ -18,7 +18,6 @@ export const DynamicPagination: React.FC = () => {
 
   return (
     <div>
-      <h1>List Universities</h1>
       {(data ?? []).map((university) => (
         <UniversityCard data={university} key={university.name} />
       ))}
