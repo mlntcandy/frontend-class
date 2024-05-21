@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Document,
-  Page,
-  View,
-  Text,
-  Image,
-} from "@react-pdf/renderer";
+import { StyleSheet, Document, Page, View, Text, Image } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   page: {
@@ -32,9 +25,7 @@ export const PdfDocument: React.FC<IPdfDocumentProps> = ({ name, picture }) => {
           <Text>{name}</Text>
         </View>
 
-        <View style={styles.section}>
-          {picture && picture.length > 0 && <Image source={picture[0]} />}
-        </View>
+        <View style={styles.section}>{picture && picture.length > 0 && <Image source={picture[0]} />}</View>
       </Page>
     </Document>
   );

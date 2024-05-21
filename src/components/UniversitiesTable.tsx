@@ -4,10 +4,10 @@ import { type ColumnsType } from "antd/es/table";
 import { Pagination } from "./Pagination";
 import styled from "styled-components";
 
-export type UniversitiesTableProps = {
+export interface UniversitiesTableProps {
   displayPerPage: number;
   defaultPage?: number;
-};
+}
 
 const universityTableColumns: ColumnsType<University> = [
   {
@@ -54,21 +54,12 @@ const StyledLoading = styled.div`
 `;
 
 export const UniversitiesTable: React.FC<UniversitiesTableProps> = (props) => {
-  const { data, page, setPage } = useUniversities(
-    props.displayPerPage,
-    props.defaultPage
-  );
+  const { data, page, setPage } = useUniversities(props.displayPerPage, props.defaultPage);
 
   return (
     <>
       {data === null && <StyledLoading>Loading...</StyledLoading>}
-      {data !== null && (
-        <StyledTable
-          dataSource={data}
-          columns={universityTableColumns}
-          pagination={false}
-        />
-      )}
+      {data !== null && <StyledTable dataSource={data} columns={universityTableColumns} pagination={false} />}
       <Pagination page={page} onChange={setPage} />
     </>
   );

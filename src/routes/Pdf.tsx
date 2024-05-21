@@ -80,21 +80,13 @@ export function Pdf() {
               },
             })}
           />
-          {form.formState.errors.name && (
-            <StyledErrorDiv>
-              {form.formState.errors.name.message}
-            </StyledErrorDiv>
-          )}
+          {form.formState.errors.name && <StyledErrorDiv>{form.formState.errors.name.message}</StyledErrorDiv>}
         </StyledLabel>
 
         <StyledLabel>
           Файл
           <StyledInput type="file" {...form.register("picture")} />
-          {form.formState.errors.picture && (
-            <StyledErrorDiv>
-              {form.formState.errors.picture.message}
-            </StyledErrorDiv>
-          )}
+          {form.formState.errors.picture && <StyledErrorDiv>{form.formState.errors.picture.message}</StyledErrorDiv>}
         </StyledLabel>
 
         <StyledButton type="submit">Сгенерировать</StyledButton>
@@ -105,17 +97,10 @@ export function Pdf() {
           <li key={t.id}>
             <p>{t.name}</p>
             <p>{t.date.toLocaleString()}</p>
-            {t.picture && t.picture.length > 0 && (
-              <img src={URL.createObjectURL(t.picture[0])} alt="" />
-            )}
+            {t.picture && t.picture.length > 0 && <img src={URL.createObjectURL(t.picture[0])} alt="" />}
             <p>
-              <PDFDownloadLink
-                document={<PdfDocument name={t.name} picture={t.picture} />}
-                fileName={`${t.name}.pdf`}
-              >
-                {({ loading, error }) =>
-                  loading ? "Загрузка..." : error ? "Ошибка" : "Скачать PDF"
-                }
+              <PDFDownloadLink document={<PdfDocument name={t.name} picture={t.picture} />} fileName={`${t.name}.pdf`}>
+                {({ loading, error }) => (loading ? "Загрузка..." : error ? "Ошибка" : "Скачать PDF")}
               </PDFDownloadLink>
             </p>
           </li>

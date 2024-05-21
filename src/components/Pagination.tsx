@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export type PaginationProps = {
+export interface PaginationProps {
   page: number;
   onChange: (page: number) => void;
-};
+}
 
 interface StyledButtonProps {
   left?: boolean;
@@ -45,7 +45,9 @@ export const Pagination: React.FC<PaginationProps> = (props) => {
     if (props.page === 0) return;
     props.onChange(props.page - 1);
   };
-  const next = () => props.onChange(props.page + 1);
+  const next = () => {
+    props.onChange(props.page + 1);
+  };
 
   return (
     <PaginationWrapper>

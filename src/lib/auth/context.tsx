@@ -1,10 +1,10 @@
 import { createContext, useState, useContext } from "react";
 
-type AuthContextType = {
+interface AuthContextType {
   loggedIn: boolean;
   login: () => void;
   logout: () => void;
-};
+}
 
 const initContext: AuthContextType = {
   loggedIn: false,
@@ -14,19 +14,17 @@ const initContext: AuthContextType = {
 
 const authCtx = createContext<AuthContextType>(initContext);
 
-export const AuthProvider: React.FC<React.PropsWithChildren> = ({
-  children,
-}) => {
+export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [loggedIn, setLoggedIn] = useState(initContext.loggedIn);
 
-  const login = () => setLoggedIn(true);
-  const logout = () => setLoggedIn(false);
+  const login = () => {
+    setLoggedIn(true);
+  };
+  const logout = () => {
+    setLoggedIn(false);
+  };
 
-  return (
-    <authCtx.Provider value={{ loggedIn, login, logout }}>
-      {children}
-    </authCtx.Provider>
-  );
+  return <authCtx.Provider value={{ loggedIn, login, logout }}>{children}</authCtx.Provider>;
 };
 
 export const useAuth = () => {
