@@ -7,6 +7,7 @@ import { Universities } from "../routes/Universities";
 import { Navigate, useRoutes } from "react-router-dom";
 import { useAuth } from "./auth/context";
 import { Pdf } from "../routes/Pdf";
+import { UniversityCards } from "../routes/UniversityCards";
 
 export const MainRouter = () => {
   const { loggedIn } = useAuth();
@@ -16,6 +17,7 @@ export const MainRouter = () => {
     { path: ROUTES.CONTACT, Component: Contact },
     { path: ROUTES.HOME, Component: Home },
     { path: ROUTES.PDF, Component: Pdf },
+    { path: ROUTES.UNIVERSITY_CARDS, Component: UniversityCards },
     { path: "*", element: <Navigate to={"/"} replace /> },
   ];
 

@@ -9,12 +9,18 @@ export interface University {
   domains: string[];
 }
 
-export const useUniversities = (perPage: number, defaultPage = 0) => {
+export const useUniversities = (
+  perPage: number,
+  defaultPage = 0,
+  infinite = false
+) => {
   const [data, setData] = useState<University[] | null>(null);
   const [page, setPage] = useState(defaultPage);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setData(null);
+    if (!infinite) setData(null);
+    setLoading(true);
     fetch(
       `http://universities.hipolabs.com/search?offset=${
         page * perPage
@@ -22,10 +28,17 @@ export const useUniversities = (perPage: number, defaultPage = 0) => {
     )
       .then((response) => response.json())
       .catch(() => null)
-      .then(setData);
-  }, [page, perPage]);
+      .then(
+        !infinite
+          ? setData
+          : (newData) =>
+              setData((old) => (old ? [...old, ...newData] : newData))
+      )
+      .then(() => setLoading(false));
+  }, [page, perPage, infinite]);
 
   return {
+    loading,
     data,
     page,
     setPage,
