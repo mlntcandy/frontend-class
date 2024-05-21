@@ -6,6 +6,7 @@ import { News } from "../routes/News";
 import { Universities } from "../routes/Universities";
 import { Navigate, useRoutes } from "react-router-dom";
 import { useAuth } from "./auth/context";
+import { Pdf } from "../routes/Pdf";
 
 export const MainRouter = () => {
   const { loggedIn } = useAuth();
@@ -14,6 +15,7 @@ export const MainRouter = () => {
     { path: ROUTES.ABOUT, Component: About },
     { path: ROUTES.CONTACT, Component: Contact },
     { path: ROUTES.HOME, Component: Home },
+    { path: ROUTES.PDF, Component: Pdf },
     { path: "*", element: <Navigate to={"/"} replace /> },
   ];
 

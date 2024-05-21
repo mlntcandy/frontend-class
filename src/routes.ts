@@ -4,4 +4,5 @@ export const ROUTES = {
   CONTACT: "/contact",
   NEWS: "/news",
   UNIVERSITIES: "/universities",
+  PDF: "/pdf",
 };

@@ -33,6 +33,7 @@ export const NavBar: React.FC = () => {
         <StyledLink to={ROUTES.HOME}>Главная</StyledLink>
         <StyledLink to={ROUTES.ABOUT}>О нас</StyledLink>
         <StyledLink to={ROUTES.CONTACT}>Контакты</StyledLink>
+        <StyledLink to={ROUTES.PDF}>PDF</StyledLink>
         {loggedIn && (
           <>
             <StyledLink to={ROUTES.NEWS}>Новости</StyledLink>
